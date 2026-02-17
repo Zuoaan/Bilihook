@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.env
+*.egg-info/
+dist/
+build/
+
+# 如果将来不小心放了 ffmpeg.exe，可以加上下面这行（但不放的话就不需要）
+# ffmpeg.exe
+EOF
