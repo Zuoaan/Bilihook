@@ -106,8 +106,15 @@ def ton(url,bvid,p,modes,save):
                         'target': '_blank',
                         'class': ['title', 'jumpable']}))
         if ftitle not in os.listdir():
-            os.mkdir(ftitle)
-            os.chdir(ftitle)
+            try:
+                os.mkdir(ftitle)
+                os.chdir(ftitle)
+                print('makedir:',ftitle)
+            except Exception:
+                n=f'unkown_{strftime("%Y_%m_%d_%H_%M_%S",localtime())}'
+                os.mkdir(n)
+                os.chdir(n)
+                print('makedir:',n)
             if hide:
                 lib=gets.find_all('div',class_='simple-base-item video-pod__item normal')
                 for num,i in enumerate(lib):
@@ -148,8 +155,15 @@ def uid(url,uid,modes,save):
     os.chdir(save)
     ftitle="HL_"+str(uid)
     if ftitle not in os.listdir():
-        os.mkdir(ftitle)
-        os.chdir(ftitle)
+        try:
+                os.mkdir(ftitle)
+                os.chdir(ftitle)
+                print('makedir:',ftitle)
+            except Exception:
+                n=f'unkown_{strftime("%Y_%m_%d_%H_%M_%S",localtime())}'
+                os.mkdir(n)
+                os.chdir(n)
+                print('makedir:',n)
         print(f'创建文件夹{ftitle}')
         page=1
         count=0
@@ -218,8 +232,15 @@ def mlid(url,mlid,modes,save):
     os.chdir(save)
     ftitle="BK_"+str(mlid)[2:]
     if ftitle not in os.listdir():
-        os.mkdir(ftitle)
-        os.chdir(ftitle)
+        try:
+                os.mkdir(ftitle)
+                os.chdir(ftitle)
+                print('makedir:',ftitle)
+            except Exception:
+                n=f'unkown_{strftime("%Y_%m_%d_%H_%M_%S",localtime())}'
+                os.mkdir(n)
+                os.chdir(n)
+                print('makedir:',n)
         print(f'创建文件夹{ftitle}')
         page=1
         count=0

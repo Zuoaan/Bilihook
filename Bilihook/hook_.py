@@ -95,9 +95,13 @@ def ton(url,modes,savefile,need):
         if filetitle not in os.listdir():
             try:
                 os.mkdir(filetitle)
+                os.chdir(filetitle)
+                print('makedir:',filetitle)
             except Exception:
-                os.mkdir(f'unkown_{strftime("%Y_%m_%d_%H_%M_%S",localtime())}')
-            os.chdir(filetitle)
+                n=f'unkown_{strftime("%Y_%m_%d_%H_%M_%S",localtime())}'
+                os.mkdir(n)
+                os.chdir(n)
+                print('makedir:',n)
             if hide:
                 lib=gets.find_all('div',class_='simple-base-item video-pod__item normal')
                 for num,i in enumerate(lib):
