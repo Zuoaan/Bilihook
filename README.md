@@ -18,10 +18,10 @@
 
 | 文件名 | 说明 |
 |--------|------|
-| `hook_-.py` | 早期版本，通过页面解析获取视频信息，功能基本完善 |
-| `hook_+.py` | 改进版本，使用 Bilibili API 获取视频/音频流地址，更稳定可靠，新增用户投稿和收藏夹下载功能 |
+| `hook_.py` | 早期版本，通过页面解析获取视频信息，功能基本完善 |
+| `hook.py` | 改进版本，使用 Bilibili API 获取视频/音频流地址，更稳定可靠，新增用户投稿和收藏夹下载功能 |
 
-两个脚本均可独立使用，命令行参数兼容。推荐使用 `hook_+.py`。
+两个脚本均可独立使用，命令行参数兼容。推荐使用 `hook.py`。
 
 ## 环境要求
 
@@ -45,7 +45,7 @@ pip install requests beautifulsoup4
 ### 命令行参数说明
 
 ```
-usage: hook_+.py [-h] [-V] [-A] [-M] (-o | -s) [-f FILE] target
+usage: hook.py [-h] [-V] [-A] [-M] (-o | -s) [-f FILE] target
 
 BiliBili视频爬取工具(慎用)
 
@@ -67,33 +67,33 @@ options:
 #### 1. 下载单个视频（仅合成 MP4）
 
 ```bash
-python hook_+.py "BV1xx411c7mD" -M -o
+python hook.py "BV1xx411c7mD" -M -o
 ```
 
 #### 2. 下载视频并同时保存视频画面和音频
 
 ```bash
-python hook_+.py "https://www.bilibili.com/video/BV1xx411c7mD?p=2" -V -A -o
+python hook.py "https://www.bilibili.com/video/BV1xx411c7mD?p=2" -V -A -o
 ```
 
 #### 3. 下载某个用户的所有投稿
 
 ```bash
-python hook_+.py "https://space.bilibili.com/123456" -M -s -f "D:/downloads"
+python hook.py "https://space.bilibili.com/123456" -M -s -f "D:/downloads"
 ```
 （`123456` 为 UID，脚本会自动创建以 `HL_UID` 命名的文件夹）
 
 #### 4. 下载收藏夹中的所有视频
 
 ```bash
-python hook_+.py "ml123456" -M -s
+python hook.py "ml123456" -M -s
 ```
 （`ml123456` 为收藏夹 ID，脚本会自动创建 `BK_123456` 文件夹）
 
 #### 5. 下载分 P 合集（自动识别）
 
 ```bash
-python hook_+.py "https://www.bilibili.com/video/BV1xx411c7mD" -M -s
+python hook.py "https://www.bilibili.com/video/BV1xx411c7mD" -M -s
 ```
 
 ## 注意事项

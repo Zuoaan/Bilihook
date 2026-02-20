@@ -4,11 +4,16 @@ import requests as req
 from bs4 import BeautifulSoup
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
-from time import sleep
+from time import sleep,localtime,strftime
 '''
 s时长stat-item duration
 s名称title-txt
 简介desc-info-text
+
+try:
+
+except Exception:
+    n=f'unkown_{strftime("%Y_%m_%d_%H_%M_%S",localtime())}'
 '''
 #单下载函数
 def lot(url,modes,savefile,need,hide):
@@ -88,7 +93,10 @@ def ton(url,modes,savefile,need):
                         'class': ['title', 'jumpable']}))
         os.chdir(savefile)
         if filetitle not in os.listdir():
-            os.mkdir(filetitle)
+            try:
+                os.mkdir(filetitle)
+            except Exception:
+                os.mkdir(f'unkown_{strftime("%Y_%m_%d_%H_%M_%S",localtime())}')
             os.chdir(filetitle)
             if hide:
                 lib=gets.find_all('div',class_='simple-base-item video-pod__item normal')
